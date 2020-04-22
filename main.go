@@ -7,7 +7,16 @@ import (
 
 func main() {
 	myfunction := func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("test"))
+		w.Write([]byte(`
+		<html>
+			<head>
+				<title>チャット</title>
+			</head>
+			<body>
+				<h1>チャットしましょう</h1>
+			</body>
+		</html>
+		`))
 	}
 	http.HandleFunc("/", myfunction)
 
