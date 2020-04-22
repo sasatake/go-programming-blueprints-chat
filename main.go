@@ -23,7 +23,9 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.Handle("/", &templateHandler{filename: "main.html"})
+	http.Handle("/sub", &templateHandler{filename: "sub.html"})
 
+	log.Println("Start Simple Web Server.")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
